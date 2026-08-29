@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BarKeep — Privacy Policy</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #fbf7f2;
+    --ink: #241f1a;
+    --ink-soft: #5c534a;
+    --rule: #e4dccf;
+    --accent: #b5622f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1b1712;
+      --ink: #f3ece1;
+      --ink-soft: #b9ada0;
+      --rule: #3a3229;
+      --accent: #e08a52;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+  h1 {
+    font-size: 2rem;
+    line-height: 1.15;
+    margin: 0 0 0.25rem;
+    text-wrap: balance;
+  }
+  .updated {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    margin: 0 0 2.5rem;
+  }
+  h2 {
+    font-size: 1.15rem;
+    margin: 2.5rem 0 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0.75rem 0; }
+  ul { margin: 0.75rem 0; padding-left: 1.25rem; }
+  li { margin: 0.4rem 0; }
+  strong { font-weight: 600; }
+  code {
+    background: var(--rule);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  a { color: var(--accent); }
+  .callout {
+    border-left: 3px solid var(--accent);
+    padding: 0.1rem 0 0.1rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>BarKeep Privacy Policy</h1>
+  <p class="updated">Last updated August 28, 2026</p>
+
+  <p>
+    BarKeep is a personal home-bar inventory app for iPhone. It has no user
+    accounts, no backend server, and no analytics or advertising SDKs of any
+    kind. This page explains, in plain terms, exactly what data the app
+    touches and where it goes.
+  </p>
+
+  <h2>What stays on your device</h2>
+  <p>
+    Your bottle collection, glassware, cocktail recipes, ratings, and notes
+    are stored locally on your iPhone using Apple's SwiftData framework.
+    None of it is uploaded anywhere, synced to a server, or shared with us —
+    there is no "us" to share it with in that sense; BarKeep has no company
+    server at all.
+  </p>
+
+  <h2>Camera &amp; Photos</h2>
+  <p>
+    BarKeep asks for camera access to photograph bottles and menus for
+    identification, and photo library access to attach an existing photo to
+    a bottle. Photos you add are stored locally in the app's own storage on
+    your device.
+  </p>
+  <p>
+    By default, identifying a bottle or menu from a photo runs entirely
+    <strong>on-device</strong>, using Apple's on-device Apple Intelligence
+    models. In this mode, the photo never leaves your phone.
+  </p>
+
+  <h2>Optional: Claude Cloud identification</h2>
+  <p>
+    Settings offers an optional alternative: identifying bottles/menus using
+    Anthropic's Claude API instead of the on-device model. This is off by
+    default and only activates if you turn it on yourself and supply your
+    own Anthropic API key.
+  </p>
+  <p>If you turn this on:</p>
+  <ul>
+    <li>The specific photo you're identifying is sent directly to Anthropic's API to generate a result.</li>
+    <li>Your API key is stored in your device's Keychain and is never sent to us — it's sent only to Anthropic, as standard API authentication, directly from your device.</li>
+    <li>Anthropic's own privacy practices govern data sent to their API — see <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy Policy</a>.</li>
+  </ul>
+  <div class="callout">
+    You can switch back to on-device identification, or delete your stored
+    API key, at any time from BarKeep's Settings screen.
+  </div>
+
+  <h2>Recipe lookup &amp; import</h2>
+  <p>
+    BarKeep's recipe book is seeded from a bundled dataset. If you search
+    for additional recipes or import one from a URL you paste in, that
+    request (a cocktail name, or the URL you provided) is sent directly from
+    your device to the relevant public source —
+    <a href="https://www.thecocktaildb.com" target="_blank" rel="noopener">TheCocktailDB</a>
+    for search, or the specific page you asked to import from. No other
+    personal data is included in these requests.
+  </p>
+
+  <h2>Barcode product lookup</h2>
+  <p>
+    If you scan a bottle's barcode and it doesn't match anything already in
+    your inventory, BarKeep sends the scanned code (only the barcode number
+    itself — no photo, no other personal data) directly from your device to
+    <a href="https://www.upcitemdb.com" target="_blank" rel="noopener">UPCitemdb</a>
+    and, if that doesn't find a match, to
+    <a href="https://world.openfoodfacts.org" target="_blank" rel="noopener">Open Food Facts</a>,
+    to try to pre-fill the new bottle's brand, name, and category. This is
+    the first request BarKeep makes to an external service without you
+    first entering an API key. Any details found this way are clearly
+    marked as coming from a product lookup and remain fully editable before
+    you save the bottle.
+  </p>
+
+  <h2>Usage analytics</h2>
+  <p>
+    BarKeep uses <a href="https://telemetrydeck.com" target="_blank" rel="noopener">TelemetryDeck</a>,
+    a privacy-focused analytics service, to understand which features actually get used — which
+    tabs get opened, whether a bottle scan or menu scan or recipe import completed successfully,
+    whether the "Ask the Barkeep" chat gets used. This is <strong>on by default</strong> and can be
+    turned off at any time from Settings → Privacy &amp; Legal, with no effect on anything else the app does.
+  </p>
+  <p>What this does and doesn't include:</p>
+  <ul>
+    <li>An anonymous identifier, generated per install, not tied to your name, email, or Apple ID — TelemetryDeck's own design goal is to collect the minimum needed to distinguish one install's behavior from another's, nothing more.</li>
+    <li><strong>Never</strong> the contents of your bar — no bottle names, brands, photos, or recipe text are ever sent as analytics. Only which screens/actions were used and simple outcome labels (like "scan succeeded" or "scan failed"). The one exception is the separate, off-by-default Chat Transcript Logging setting described next.</li>
+    <li>Not used for advertising, not sold, not shared with data brokers — see <a href="https://telemetrydeck.com/docs/guides/privacy-faq/" target="_blank" rel="noopener">TelemetryDeck's own privacy FAQ</a> for their side of this.</li>
+    <li>No App Tracking Transparency prompt, because this isn't cross-app tracking — nothing here follows you into any other app.</li>
+  </ul>
+
+  <h2>Chat transcript logging</h2>
+  <p>
+    Separate from usage analytics, and <strong>off by default</strong> — a real opt-in, not
+    something you have to turn off. If you turn on Settings → Privacy &amp; Legal → Chat Transcript Logging,
+    each "Ask the Barkeep" question and reply is sent to a private database (hosted on
+    <a href="https://supabase.com" target="_blank" rel="noopener">Supabase</a>) so real conversations
+    can be reviewed to find and fix bad or confusing responses — the same reason this setting exists
+    at all was a real quality bug found this way.
+  </p>
+  <ul>
+    <li>Sent alongside each exchange: a random ID generated fresh every time you open the chat sheet — not your name, device, Apple ID, or anything that identifies you, and not reused between chat sessions.</li>
+    <li>The database only accepts new entries from the app — it cannot be used to read, edit, or delete anyone's logged conversations, including yours, enforced by the database itself, not just app behavior.</li>
+    <li>Turning this off at any time stops it immediately, including mid-conversation; nothing sent before that point can be pulled back.</li>
+    <li>With this setting off, each reply also has its own "Flag this reply" option — a one-time, explicit way to send just that specific question and answer, for a single bad reply, without turning on logging for every future conversation.</li>
+  </ul>
+
+  <h2>Subscriptions &amp; payment</h2>
+  <p>
+    BarKeep Pro is an optional auto-renewing subscription. Purchases are handled
+    entirely by Apple through the App Store &mdash; BarKeep never receives, sees, or
+    stores your payment details, card number, or billing address. All the app gets
+    from Apple is a signed confirmation of whether an active subscription exists,
+    which it reads on your device to unlock Pro features. That check happens through
+    Apple's StoreKit framework and involves no server of ours.
+  </p>
+  <p>
+    You can view, change, or cancel your subscription at any time in Settings &rsaquo;
+    your Apple Account &rsaquo; Subscriptions. Apple's own privacy policy governs the
+    purchase itself, including any payment or billing data you provide to them.
+  </p>
+
+  <h2>Notifications</h2>
+  <p>
+    Low-stock reminders are scheduled entirely on your device using Apple's
+    local notification system. BarKeep does not use push notifications and
+    has no server capable of sending you anything remotely.
+  </p>
+
+  <h2>What we don't do</h2>
+  <ul>
+    <li>No accounts, no sign-in, no passwords to manage.</li>
+    <li>No advertising SDKs of any kind, and no crash-reporting SDK bundled in the app (crash reports come from Apple's own TestFlight feedback tools, not a third-party crash SDK).</li>
+    <li>No advertising identifiers (IDFA), no cross-app or cross-site tracking — see "Usage analytics" above for the one analytics SDK the app does use, and how to turn it off.</li>
+    <li>No selling or sharing of your data with data brokers — there's no data collected by us to sell.</li>
+  </ul>
+
+  <h2>Data you can delete</h2>
+  <p>
+    Since everything BarKeep stores lives on your device, deleting the app
+    deletes all of it. You can also delete your stored Anthropic API key
+    individually at any time from Settings without deleting anything else,
+    or turn off usage analytics or chat transcript logging at any time from
+    Settings → Privacy &amp; Legal. Because both are anonymous by design (see "Usage
+    analytics" and "Chat transcript logging" above), neither is tied to
+    you individually, so there's no per-person record to request deletion
+    of.
+  </p>
+
+  <h2>Changes to this policy</h2>
+  <p>
+    If this policy changes, the "Last updated" date above will change too.
+    Material changes (anything that changes what data leaves your device,
+    or introduces accounts/tracking) will also be reflected in the app's own
+    release notes.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    Questions about this policy: <a href="mailto:andrew.vlahopoulos@gmail.com">andrew.vlahopoulos@gmail.com</a>
+  </p>
+</main>
+</body>
+</html>
