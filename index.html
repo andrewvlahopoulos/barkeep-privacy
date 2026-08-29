@@ -198,14 +198,24 @@
   <h2>Notifications</h2>
   <p>
     Low-stock reminders are scheduled entirely on your device using Apple's
-    local notification system. BarKeep does not use push notifications and
-    has no server capable of sending you anything remotely.
+    local notification system. Nothing about them leaves your phone, and
+    <strong>BarKeep has no server capable of sending you a message</strong> &mdash; you
+    will never receive a notification written by us.
+  </p>
+  <p>
+    One technical exception, named here because the app's entitlements declare it and
+    accuracy matters more than a tidy claim: if you turn on iCloud Backup, Apple's
+    CloudKit service sends your device <em>silent</em> background notifications to tell
+    it that data changed on another one of your devices, so the two can sync. These carry
+    no content, are never displayed, and come from Apple &mdash; not from us. They're the
+    reason the app declares the <code>remote-notification</code> background mode.
   </p>
 
   <h2>What we don't do</h2>
   <ul>
     <li>No accounts, no sign-in, no passwords to manage.</li>
     <li>No advertising SDKs of any kind, and no crash-reporting SDK bundled in the app (crash reports come from Apple's own TestFlight feedback tools, not a third-party crash SDK).</li>
+    <li>No marketing or promotional notifications of any kind &mdash; see "Notifications" above for the one silent, contentless exception iCloud sync relies on.</li>
     <li>No advertising identifiers (IDFA), no cross-app or cross-site tracking — see "Usage analytics" above for the one analytics SDK the app does use, and how to turn it off.</li>
     <li>No selling or sharing of your data with data brokers — there's no data collected by us to sell.</li>
   </ul>
