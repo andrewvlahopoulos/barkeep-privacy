@@ -79,7 +79,7 @@
     BarKeep is a personal home-bar inventory app for iPhone. It has no user
     accounts, no advertising SDKs of any kind. It uses one
     privacy-focused analytics SDK, which you can turn off, and it operates one
-    small server used by a single optional feature &mdash; both are described in
+    small server used by a single optional feature — both are described in
     full below. This page explains, in plain terms, exactly what data the app
     touches and where it goes.
   </p>
@@ -98,7 +98,7 @@
   <ul>
     <li>If you turn on <strong>iCloud Backup</strong> in BarKeep's Settings, your bar syncs
       between your own devices through your personal iCloud account, using Apple's CloudKit.
-      That is your iCloud, not ours &mdash; we cannot see it.</li>
+      That is your iCloud, not ours — we cannot see it.</li>
     <li>If you ask BarKeep to <strong>write a tasting note</strong> for a recipe you imported,
       that one recipe leaves your device. See "Written tasting notes" below.</li>
   </ul>
@@ -155,7 +155,7 @@
     <a href="https://world.openfoodfacts.org" target="_blank" rel="noopener">Open Food Facts</a>,
     to try to pre-fill the new bottle's brand, name, and category. This is
     one of only two requests BarKeep makes to an external service without you
-    first entering an API key &mdash; the other being written tasting notes, below. Any details found this way are clearly
+    first entering an API key — the other being written tasting notes, below. Any details found this way are clearly
     marked as coming from a product lookup and remain fully editable before
     you save the bottle.
   </p>
@@ -187,11 +187,11 @@
   </p>
   <ul>
     <li>Sent alongside each exchange: a random ID generated fresh every time you start a
-      conversation &mdash; not your name, device, Apple ID, or anything that identifies you, and not
+      conversation — not your name, device, Apple ID, or anything that identifies you, and not
       reused between conversations.</li>
     <li>Also sent: if the reply mentioned any drinks from your recipe book, their <em>names</em>, and
       whether your current bottles could make them. This is what makes a bad answer diagnosable
-      &mdash; a reply recommending something you plainly can't make is invisible in the text alone.
+      — a reply recommending something you plainly can't make is invisible in the text alone.
       Your bottle list itself is never sent.</li>
     <li>The database only accepts new entries from the app — it cannot be used to read, edit, or delete anyone's logged conversations, including yours, enforced by the database itself, not just app behavior.</li>
     <li>Turning this off at any time stops it immediately, including mid-conversation; nothing sent before that point can be pulled back.</li>
@@ -228,7 +228,7 @@
     <li>The finished note and the ingredient list it was written from, so the same drink isn't paid
       for twice and so the quality of what BarKeep writes can actually be checked.
       <strong>The recipe's name is not stored.</strong> Notes are filed under a one-way fingerprint
-      of the recipe, which the name cannot be worked back out of &mdash; so if you named a drink
+      of the recipe, which the name cannot be worked back out of — so if you named a drink
       something private, that name is not sitting in our database.</li>
     <li>A count of how many notes your installation of the app has asked for today, to stop the
       feature being abused. It is a random identifier the app made up, not tied to you or your
@@ -236,22 +236,22 @@
   </ul>
   <div class="callout">
     Before any note is returned it is checked automatically and thrown away if it strays into
-    claiming a drink's history or suggesting an effect on you &mdash; you get no note rather than a
+    claiming a drink's history or suggesting an effect on you — you get no note rather than a
     wrong one.
   </div>
 
   <h2>Subscriptions &amp; payment</h2>
   <p>
     BarKeep Pro is an optional auto-renewing subscription. Purchases are handled
-    entirely by Apple through the App Store &mdash; BarKeep never receives, sees, or
+    entirely by Apple through the App Store — BarKeep never receives, sees, or
     stores your payment details, card number, or billing address. All the app gets
     from Apple is a signed confirmation of whether an active subscription exists,
     which it reads on your device to unlock Pro features. That check happens through
     Apple's StoreKit framework and involves no server of ours.
   </p>
   <p>
-    You can view, change, or cancel your subscription at any time in Settings &rsaquo;
-    your Apple Account &rsaquo; Subscriptions. Apple's own privacy policy governs the
+    You can view, change, or cancel your subscription at any time in Settings ›
+    your Apple Account › Subscriptions. Apple's own privacy policy governs the
     purchase itself, including any payment or billing data you provide to them.
   </p>
 
@@ -259,7 +259,7 @@
   <p>
     Low-stock reminders are scheduled entirely on your device using Apple's
     local notification system. Nothing about them leaves your phone, and
-    <strong>BarKeep has no server capable of sending you a message</strong> &mdash; you
+    <strong>BarKeep has no server capable of sending you a message</strong> — you
     will never receive a notification written by us.
   </p>
   <p>
@@ -267,7 +267,7 @@
     accuracy matters more than a tidy claim: if you turn on iCloud Backup, Apple's
     CloudKit service sends your device <em>silent</em> background notifications to tell
     it that data changed on another one of your devices, so the two can sync. These carry
-    no content, are never displayed, and come from Apple &mdash; not from us. They're the
+    no content, are never displayed, and come from Apple — not from us. They're the
     reason the app declares the <code>remote-notification</code> background mode.
   </p>
 
@@ -275,7 +275,7 @@
   <ul>
     <li>No accounts, no sign-in, no passwords to manage.</li>
     <li>No advertising SDKs of any kind, and no crash-reporting SDK bundled in the app (crash reports come from Apple's own TestFlight feedback tools, not a third-party crash SDK).</li>
-    <li>No marketing or promotional notifications of any kind &mdash; see "Notifications" above for the one silent, contentless exception iCloud sync relies on.</li>
+    <li>No marketing or promotional notifications of any kind — see "Notifications" above for the one silent, contentless exception iCloud sync relies on.</li>
     <li>No advertising identifiers (IDFA), no cross-app or cross-site tracking — see "Usage analytics" above for the one analytics SDK the app does use, and how to turn it off.</li>
     <li>No selling or sharing of your data with data brokers — what little reaches our own server (see "Written
       tasting notes") isn't tied to you, so there would be nothing to sell even if we wanted to.</li>
@@ -295,7 +295,7 @@
     events, if you left those on; and, if you used written tasting notes, the
     finished notes plus a request count that deletes itself nightly. All of it is
     anonymous by design, so there is no per-person record for us to look up, hand
-    over, or delete on request &mdash; not as a policy choice, but because it was
+    over, or delete on request — not as a policy choice, but because it was
     never collected in a form that could be traced to anybody.
   </p>
 
