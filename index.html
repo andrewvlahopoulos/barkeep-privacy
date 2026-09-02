@@ -73,12 +73,14 @@
 <body>
 <main>
   <h1>BarKeep Privacy Policy</h1>
-  <p class="updated">Last updated August 28, 2026</p>
+  <p class="updated">Last updated September 1, 2026</p>
 
   <p>
     BarKeep is a personal home-bar inventory app for iPhone. It has no user
-    accounts, no backend server, and no analytics or advertising SDKs of any
-    kind. This page explains, in plain terms, exactly what data the app
+    accounts, no advertising SDKs of any kind. It uses one
+    privacy-focused analytics SDK, which you can turn off, and it operates one
+    small server used by a single optional feature &mdash; both are described in
+    full below. This page explains, in plain terms, exactly what data the app
     touches and where it goes.
   </p>
 
@@ -86,10 +88,20 @@
   <p>
     Your bottle collection, glassware, cocktail recipes, ratings, and notes
     are stored locally on your iPhone using Apple's SwiftData framework.
-    None of it is uploaded anywhere, synced to a server, or shared with us —
-    there is no "us" to share it with in that sense; BarKeep has no company
-    server at all.
+    None of it is uploaded anywhere, synced to a server, or shared with anyone
+    as a matter of course.
   </p>
+  <p>
+    Two things are worth stating plainly, because "all of it stays on your phone"
+    would not be quite true:
+  </p>
+  <ul>
+    <li>If you turn on <strong>iCloud Backup</strong> in BarKeep's Settings, your bar syncs
+      between your own devices through your personal iCloud account, using Apple's CloudKit.
+      That is your iCloud, not ours &mdash; we cannot see it.</li>
+    <li>If you ask BarKeep to <strong>write a tasting note</strong> for a recipe you imported,
+      that one recipe leaves your device. See "Written tasting notes" below.</li>
+  </ul>
 
   <h2>Camera &amp; Photos</h2>
   <p>
@@ -142,8 +154,8 @@
     and, if that doesn't find a match, to
     <a href="https://world.openfoodfacts.org" target="_blank" rel="noopener">Open Food Facts</a>,
     to try to pre-fill the new bottle's brand, name, and category. This is
-    the first request BarKeep makes to an external service without you
-    first entering an API key. Any details found this way are clearly
+    one of only two requests BarKeep makes to an external service without you
+    first entering an API key &mdash; the other being written tasting notes, below. Any details found this way are clearly
     marked as coming from a product lookup and remain fully editable before
     you save the bottle.
   </p>
@@ -179,6 +191,48 @@
     <li>Turning this off at any time stops it immediately, including mid-conversation; nothing sent before that point can be pulled back.</li>
     <li>With this setting off, each reply also has its own "Flag this reply" option — a one-time, explicit way to send just that specific question and answer, for a single bad reply, without turning on logging for every future conversation.</li>
   </ul>
+
+  <h2>Written tasting notes</h2>
+  <p>
+    The cocktail recipes BarKeep ships with already have tasting notes, written in
+    advance and included in the app. Recipes <em>you</em> import don't. If you
+    subscribe to BarKeep Pro, you can tap "Write one for me" on a recipe and have
+    a note written for it.
+  </p>
+  <p>
+    This is the only feature where BarKeep sends something on your behalf and pays
+    for it, so it is worth spelling out exactly.
+  </p>
+  <ul>
+    <li><strong>It only happens when you tap that button.</strong> Nothing is sent in the
+      background, and nothing is sent for recipes you don't ask about.</li>
+    <li><strong>What is sent:</strong> that recipe's name and its ingredient list. Not your
+      inventory, not your other recipes, not your name, device, or Apple ID.</li>
+    <li><strong>Where it goes:</strong> to a small BarKeep server (hosted on
+      <a href="https://supabase.com" target="_blank" rel="noopener">Supabase</a>), which passes it
+      to <a href="https://www.anthropic.com" target="_blank" rel="noopener">Anthropic</a> to write
+      the note and hands the result back. Anthropic's own
+      <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">privacy
+      practices</a> govern what they do with it.</li>
+    <li><strong>Writing your own note instead never leaves your phone</strong>, is free, and needs
+      no subscription.</li>
+  </ul>
+  <p>What that server keeps, and for how long:</p>
+  <ul>
+    <li>The finished note and the ingredient list it was written from, so the same drink isn't paid
+      for twice and so the quality of what BarKeep writes can actually be checked.
+      <strong>The recipe's name is not stored.</strong> Notes are filed under a one-way fingerprint
+      of the recipe, which the name cannot be worked back out of &mdash; so if you named a drink
+      something private, that name is not sitting in our database.</li>
+    <li>A count of how many notes your installation of the app has asked for today, to stop the
+      feature being abused. It is a random identifier the app made up, not tied to you or your
+      device, and it is deleted automatically every night.</li>
+  </ul>
+  <div class="callout">
+    Before any note is returned it is checked automatically and thrown away if it strays into
+    claiming a drink's history or suggesting an effect on you &mdash; you get no note rather than a
+    wrong one.
+  </div>
 
   <h2>Subscriptions &amp; payment</h2>
   <p>
@@ -217,19 +271,26 @@
     <li>No advertising SDKs of any kind, and no crash-reporting SDK bundled in the app (crash reports come from Apple's own TestFlight feedback tools, not a third-party crash SDK).</li>
     <li>No marketing or promotional notifications of any kind &mdash; see "Notifications" above for the one silent, contentless exception iCloud sync relies on.</li>
     <li>No advertising identifiers (IDFA), no cross-app or cross-site tracking — see "Usage analytics" above for the one analytics SDK the app does use, and how to turn it off.</li>
-    <li>No selling or sharing of your data with data brokers — there's no data collected by us to sell.</li>
+    <li>No selling or sharing of your data with data brokers — what little reaches our own server (see "Written
+      tasting notes") isn't tied to you, so there would be nothing to sell even if we wanted to.</li>
   </ul>
 
   <h2>Data you can delete</h2>
   <p>
-    Since everything BarKeep stores lives on your device, deleting the app
-    deletes all of it. You can also delete your stored Anthropic API key
-    individually at any time from Settings without deleting anything else,
-    or turn off usage analytics or chat transcript logging at any time from
-    Settings → Privacy &amp; Legal. Because both are anonymous by design (see "Usage
-    analytics" and "Chat transcript logging" above), neither is tied to
-    you individually, so there's no per-person record to request deletion
-    of.
+    Almost everything BarKeep stores lives on your device, so deleting the app
+    deletes it. You can also delete your stored Anthropic API key individually at
+    any time from Settings without deleting anything else, or turn off usage
+    analytics or chat transcript logging at any time from Settings → Privacy
+    &amp; Legal.
+  </p>
+  <p>
+    The exceptions are the ones described above, and none of them is a record of
+    <em>you</em>: logged chat transcripts, if you turned that on; anonymous usage
+    events, if you left those on; and, if you used written tasting notes, the
+    finished notes plus a request count that deletes itself nightly. All of it is
+    anonymous by design, so there is no per-person record for us to look up, hand
+    over, or delete on request &mdash; not as a policy choice, but because it was
+    never collected in a form that could be traced to anybody.
   </p>
 
   <h2>Changes to this policy</h2>
