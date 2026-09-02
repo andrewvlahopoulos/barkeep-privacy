@@ -212,8 +212,9 @@
   <ul>
     <li><strong>It only happens when you tap that button.</strong> Nothing is sent in the
       background, and nothing is sent for recipes you don't ask about.</li>
-    <li><strong>What is sent:</strong> that recipe's name and its ingredient list. Not your
-      inventory, not your other recipes, not your name, device, or Apple ID.</li>
+    <li><strong>What is sent:</strong> that recipe's ingredient list — and nothing else. Not the
+      recipe's name, not your inventory, not your other recipes, not your name, device, or
+      Apple ID.</li>
     <li><strong>Where it goes:</strong> to a small BarKeep server (hosted on
       <a href="https://supabase.com" target="_blank" rel="noopener">Supabase</a>), which passes it
       to <a href="https://www.anthropic.com" target="_blank" rel="noopener">Anthropic</a> to write
@@ -226,10 +227,9 @@
   <p>What that server keeps, and for how long:</p>
   <ul>
     <li>The finished note and the ingredient list it was written from, so the same drink isn't paid
-      for twice and so the quality of what BarKeep writes can actually be checked.
-      <strong>The recipe's name is not stored.</strong> Notes are filed under a one-way fingerprint
-      of the recipe, which the name cannot be worked back out of — so if you named a drink
-      something private, that name is not sitting in our database.</li>
+      for twice and so the quality of what BarKeep writes can actually be checked. <strong>The
+      recipe's name never leaves your phone at all</strong>, so if you named a drink something
+      private, that name is not sent anywhere and is not in our database.</li>
     <li>A count of how many notes your installation of the app has asked for today, to stop the
       feature being abused. It is a random identifier the app made up, not tied to you or your
       device, and it is deleted automatically every night.</li>
