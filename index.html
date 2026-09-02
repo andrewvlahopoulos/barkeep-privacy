@@ -73,7 +73,7 @@
 <body>
 <main>
   <h1>BarKeep Privacy Policy</h1>
-  <p class="updated">Last updated September 1, 2026</p>
+  <p class="updated">Last updated September 2, 2026</p>
 
   <p>
     BarKeep is a personal home-bar inventory app for iPhone. It has no user
@@ -186,7 +186,13 @@
     at all was a real quality bug found this way.
   </p>
   <ul>
-    <li>Sent alongside each exchange: a random ID generated fresh every time you open the chat sheet — not your name, device, Apple ID, or anything that identifies you, and not reused between chat sessions.</li>
+    <li>Sent alongside each exchange: a random ID generated fresh every time you start a
+      conversation &mdash; not your name, device, Apple ID, or anything that identifies you, and not
+      reused between conversations.</li>
+    <li>Also sent: if the reply mentioned any drinks from your recipe book, their <em>names</em>, and
+      whether your current bottles could make them. This is what makes a bad answer diagnosable
+      &mdash; a reply recommending something you plainly can't make is invisible in the text alone.
+      Your bottle list itself is never sent.</li>
     <li>The database only accepts new entries from the app — it cannot be used to read, edit, or delete anyone's logged conversations, including yours, enforced by the database itself, not just app behavior.</li>
     <li>Turning this off at any time stops it immediately, including mid-conversation; nothing sent before that point can be pulled back.</li>
     <li>With this setting off, each reply also has its own "Flag this reply" option — a one-time, explicit way to send just that specific question and answer, for a single bad reply, without turning on logging for every future conversation.</li>
