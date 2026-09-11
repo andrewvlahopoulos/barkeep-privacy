@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BarKeep &mdash; Support</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #fbf7f2;
+    --ink: #241f1a;
+    --ink-soft: #5c534a;
+    --rule: #e4dccf;
+    --accent: #b5622f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1b1712;
+      --ink: #f3ece1;
+      --ink-soft: #b9ada0;
+      --rule: #3a3229;
+      --accent: #e08a52;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+  h1 {
+    font-size: 2rem;
+    line-height: 1.15;
+    margin: 0 0 0.25rem;
+    text-wrap: balance;
+  }
+  .updated {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    margin: 0 0 2.5rem;
+  }
+  h2 {
+    font-size: 1.15rem;
+    margin: 2.5rem 0 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0.75rem 0; }
+  ul { margin: 0.75rem 0; padding-left: 1.25rem; }
+  li { margin: 0.4rem 0; }
+  strong { font-weight: 600; }
+  code {
+    background: var(--rule);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+  a { color: var(--accent); }
+  .callout {
+    border-left: 3px solid var(--accent);
+    padding: 0.1rem 0 0.1rem 1rem;
+    margin: 1.5rem 0;
+    color: var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>BarKeep Support</h1>
+  <p class="updated">Last updated September 11, 2026</p>
+
+  <p>
+    BarKeep is a home-bar inventory app for iPhone and iPad. Track what is on your
+    shelf, see which cocktails you can actually make tonight, and get a nudge before
+    a bottle runs dry.
+  </p>
+
+  <div class="callout">
+    <p>
+      <strong>Need help, found a bug, or want to suggest something?</strong><br />
+      Email <a href="mailto:support@homebarkeep.com">support@homebarkeep.com</a>.
+      BarKeep is made by one person, so replies are personal rather than instant &mdash;
+      usually within a couple of days.
+    </p>
+  </div>
+
+  <p>
+    It helps enormously if you can include your iOS version, your device
+    (iPhone or iPad model), and what you were doing when something went wrong.
+    A screenshot is worth a paragraph.
+  </p>
+
+  <h2>Requirements</h2>
+  <p>
+    BarKeep requires <strong>iOS 27 or later</strong> on iPhone or iPad. That floor is
+    not arbitrary: on-device bottle identification uses Apple Intelligence APIs that
+    do not exist on earlier versions.
+  </p>
+  <p>
+    The app is rated 18+ for frequent alcohol references.
+  </p>
+
+  <h2>Adding bottles</h2>
+  <p>There are three ways, and you can mix them freely:</p>
+  <ul>
+    <li><strong>Photograph the label.</strong> On-device AI reads the brand, category,
+      strength and size. It runs entirely on your phone, costs nothing, and works
+      offline.</li>
+    <li><strong>Scan the barcode.</strong> If the bottle is new to your shelf, BarKeep
+      looks it up in a public product database to fill in the details.</li>
+    <li><strong>Type it in.</strong> Always available, and every field from the other two
+      methods stays editable.</li>
+  </ul>
+  <p>
+    <strong>If identification gets something wrong</strong>, just correct it before
+    saving &mdash; nothing is locked. Heavily stylised labels, split wordmarks and
+    unusual bottles are the hard cases. Reading small print like ABV and volume
+    depends a lot on focus and glare, so a straight-on photo in decent light does
+    noticeably better than an angled one.
+  </p>
+
+  <h2>Bottle recognition: On-Device or Claude</h2>
+  <p>
+    Settings &rsaquo; Intelligence lets you choose which engine identifies bottles.
+  </p>
+  <ul>
+    <li><strong>On-Device</strong> is the default. Photos never leave your phone and
+      there is no cost per identification. It can be less accurate on heavily
+      stylised labels.</li>
+    <li><strong>Claude</strong> is more accurate on difficult labels, and requires
+      <strong>your own Anthropic API key</strong>, entered in Settings. Usage is billed
+      to your Anthropic account, not to BarKeep &mdash; there is no markup and no
+      subscription involved. A typical bottle scan costs a few cents.</li>
+  </ul>
+  <p>
+    You can switch between them at any time, and the same choice is offered separately
+    for &ldquo;Ask the Barkeep&rdquo;.
+  </p>
+
+  <h2>BarKeep Pro</h2>
+  <p>
+    <strong>The core app is free forever.</strong> Inventory, cocktails, on-device
+    bottle identification, barcode scanning, low-stock alerts and the built-in recipe
+    library are not behind a paywall and are not time-limited.
+  </p>
+  <p>Pro adds:</p>
+  <ul>
+    <li><strong>Advanced Stats</strong> &mdash; spend tracking, most-used spirits, pour history</li>
+    <li><strong>Export</strong> &mdash; your inventory and recipe book as a JSON file</li>
+    <li><strong>Home Screen Widgets</strong> &mdash; low stock and makeable-now</li>
+    <li><strong>More Recipe Imports</strong> &mdash; a higher cap on recipes imported from URLs, text and TheCocktailDB</li>
+    <li><strong>Written Tasting Notes</strong> &mdash; a tasting note written for recipes you import</li>
+  </ul>
+  <p>
+    Pro is <strong>$2.99 per month</strong> or <strong>$19.99 per year</strong>. The yearly
+    plan includes a <strong>one-week free trial</strong>; the monthly plan does not.
+    Prices shown in the app are the ones that apply in your region.
+  </p>
+
+  <h2>Managing your subscription</h2>
+  <ul>
+    <li><strong>Cancel or change plan:</strong> iPhone Settings &rsaquo; your name &rsaquo;
+      Subscriptions &rsaquo; BarKeep. Subscriptions are managed by Apple, not by
+      BarKeep, so this is the only place they can be changed.</li>
+    <li><strong>Cancelling keeps your access</strong> until the end of the period you have
+      already paid for &mdash; or, during a trial, until the trial ends. It stops the
+      next renewal; it does not revoke access immediately.</li>
+    <li><strong>Free trials</strong> convert to a paid year unless cancelled at least
+      24 hours before they end.</li>
+    <li><strong>Refunds</strong> are handled by Apple, at
+      <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.
+      BarKeep cannot issue them.</li>
+  </ul>
+
+  <h2>&ldquo;I paid but Pro is not unlocked&rdquo;</h2>
+  <p>
+    Open the paywall and tap <strong>Restore Purchases</strong>. That re-reads your
+    entitlements from Apple and is the fix for almost every case, including a new
+    device, a reinstall, or a purchase that completed while the app was closing.
+  </p>
+  <p>
+    If it still does not unlock, check that the device is signed into the same Apple
+    Account that made the purchase, then email me with the approximate date of
+    purchase and I will help sort it out.
+  </p>
+
+  <h2>Your data</h2>
+  <p>
+    Your bottles, recipes, ratings and notes live on your device. There are no
+    accounts, no advertising SDKs, and nothing to sign up for. Optional iCloud Backup
+    syncs your bar between your own devices through your personal iCloud account.
+  </p>
+  <p>
+    A few features do reach outside the phone, and each one is described in full in the
+    <a href="/">privacy policy</a> &mdash; barcode lookup, optional Claude
+    identification, recipe import, and written tasting notes.
+  </p>
+  <p>
+    <strong>To delete everything:</strong> deleting the app removes its local data. If
+    you used iCloud Backup, also remove BarKeep's data from iCloud in iPhone Settings
+    &rsaquo; your name &rsaquo; iCloud &rsaquo; Manage Account Storage.
+  </p>
+
+  <h2>Something else</h2>
+  <p>
+    Feature requests are genuinely welcome, and so are bug reports about recipes that
+    look wrong or bottles that identify badly &mdash; those are the ones that most
+    often turn into real fixes.
+  </p>
+  <p>
+    <a href="mailto:support@homebarkeep.com">support@homebarkeep.com</a>
+  </p>
+
+  <h2>Privacy</h2>
+  <p>
+    The full privacy policy is <a href="/">here</a>.
+  </p>
+</main>
+</body>
+</html>
