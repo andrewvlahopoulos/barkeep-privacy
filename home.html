@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BarKeep — what can you make tonight?</title>
+<meta name="description" content="A home bar inventory for iPhone. Add the bottles you own, and see which of 170 cocktails you can actually make right now." />
+<link rel="icon" href="assets/icon.png" />
+<meta property="og:title" content="BarKeep — Home Bar" />
+<meta property="og:description" content="Add the bottles you own. See what you can make tonight." />
+<meta property="og:image" content="https://homebarkeep.com/assets/icon.png" />
+<style>
+  /* Palette is BarKeep's own BKColor tokens, the same ones the privacy and support pages use —
+     this is one site, not three. */
+  :root {
+    color-scheme: light dark;
+    --bg: #fbf7f2;
+    --raised: #f3ebe0;
+    --ink: #241f1a;
+    --ink-soft: #5c534a;
+    --rule: #e4dccf;
+    --accent: #b5622f;
+    --on-accent: #fffaf5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1b1712;
+      --raised: #262019;
+      --ink: #f3ece1;
+      --ink-soft: #b9ada0;
+      --rule: #3a3229;
+      --accent: #e08a52;
+      --on-accent: #1b1712;
+    }
+  }
+  /* The app's own display face. Body stays on the system stack: it loads instantly, and it is what
+     the privacy and support pages already use. */
+  @font-face {
+    font-family: "Source Serif 4";
+    src: url("assets/fonts/SourceSerif4-Semibold.otf") format("opentype");
+    font-weight: 600;
+    font-display: swap;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 400 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+  .serif { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; }
+
+  /* ---- hero ---- */
+  header { padding: 4.5rem 0 1rem; text-align: center; }
+  header img.icon {
+    width: 88px; height: 88px; border-radius: 20px; display: block; margin: 0 auto 1.5rem;
+    box-shadow: 0 6px 24px rgb(0 0 0 / 0.14);
+  }
+  h1 {
+    font-size: clamp(2.1rem, 6vw, 3rem); line-height: 1.1; margin: 0 0 0.75rem;
+    text-wrap: balance;
+  }
+  .sub { color: var(--ink-soft); font-size: 1.1rem; margin: 0 auto 2rem; max-width: 34rem; }
+  .cta {
+    display: inline-block; padding: 0.55rem 1.1rem; border: 1px solid var(--rule);
+    border-radius: 999px; color: var(--ink-soft); font-size: 0.95rem;
+  }
+
+  /* ---- the demo: the app's signature counter, made operable ---- */
+  .demo { margin: 3.5rem 0 1rem; }
+  .counter {
+    font-size: clamp(1.4rem, 4.5vw, 2rem); text-align: center; margin: 0 0 0.35rem;
+  }
+  .counter b { color: var(--accent); font-variant-numeric: tabular-nums; }
+  .hint { text-align: center; color: var(--ink-soft); font-size: 0.92rem; margin: 0 0 1.5rem; }
+  .shelf { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 0 0 1.75rem; }
+  .shelf button {
+    font: inherit; font-size: 0.93rem; padding: 0.4rem 0.85rem; cursor: pointer;
+    border: 1px solid var(--rule); border-radius: 999px;
+    background: var(--bg); color: var(--ink-soft); transition: background .12s, color .12s, border-color .12s;
+  }
+  .shelf button[aria-pressed="true"] {
+    background: var(--accent); border-color: var(--accent); color: var(--on-accent);
+  }
+  .shelf button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .drinks {
+    list-style: none; padding: 0; margin: 0; min-height: 4.5rem;
+    display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;
+    /* Without this the row's default `stretch` makes a single result fill the whole
+       min-height and render as a tall empty box. */
+    align-items: flex-start;
+  }
+  .drinks li {
+    background: var(--raised); border: 1px solid var(--rule); border-radius: 8px;
+    padding: 0.35rem 0.75rem; font-size: 0.95rem;
+  }
+  .empty { color: var(--ink-soft); font-size: 0.95rem; text-align: center; width: 100%; }
+
+  /* ---- screenshots ---- */
+  .shots {
+    display: flex; gap: 1rem; overflow-x: auto; padding: 0.5rem 0 1.5rem;
+    scroll-snap-type: x mandatory;
+  }
+  .shots img {
+    width: 232px; flex: 0 0 auto; border-radius: 18px; border: 1px solid var(--rule);
+    scroll-snap-align: center;
+  }
+
+  /* ---- prose ---- */
+  section { padding: 1rem 0; }
+  h2 {
+    font-size: 1.25rem; margin: 2.5rem 0 0.6rem; padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  p { margin: 0.75rem 0; }
+  a { color: var(--accent); }
+  footer {
+    border-top: 1px solid var(--rule); margin-top: 3.5rem; padding: 2rem 0 4rem;
+    color: var(--ink-soft); font-size: 0.93rem; text-align: center;
+  }
+  footer a { margin: 0 0.6rem; }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <img class="icon" src="assets/icon.png" alt="" />
+  <h1 class="serif">What can you make tonight?</h1>
+  <p class="sub">BarKeep is a home bar inventory for iPhone. Add the bottles you actually own, and it tells you which of 170 cocktails your shelf can produce right now — and what you're one bottle away from.</p>
+  <span class="cta">Coming soon to the App Store</span>
+</header>
+
+<main class="wrap">
+
+  <!-- The product in miniature. Real recipes, real ingredient matching — just a smaller shelf. -->
+  <div class="demo">
+    <p class="counter serif"><b id="count">0</b> <span id="noun">drinks</span> from this shelf</p>
+    <p class="hint">Tap to add or remove. Real recipes, real matching &mdash; 15 of the app&rsquo;s 170.</p>
+    <div class="shelf" id="shelf" role="group" aria-label="Bottles you own"></div>
+    <ul class="drinks" id="drinks"></ul>
+  </div>
+
+  <div class="shots">
+    <img src="assets/shots/02-cocktails.png" alt="The recipe list, filtered to drinks that can be made from the current inventory." />
+    <img src="assets/shots/01-inventory.png" alt="The bottle inventory, showing how full each bottle is." />
+    <img src="assets/shots/04-low-stock.png" alt="The low stock screen, listing bottles running low." />
+  </div>
+
+  <section>
+    <h2>The AI runs on your phone</h2>
+    <p>Photograph a bottle and BarKeep reads the label — brand, type, size, strength — using Apple's on-device model. Not a cloud service with a local fallback: on-device is the default, with no account and no API key. Photos of your liquor cabinet stay on your phone.</p>
+
+    <h2>Zero-proof isn't a separate tab</h2>
+    <p>26 of the 170 recipes contain no alcohol — a Nogroni, a Virgin Paloma, a Ginger Switchel, a proper Chocolate Egg Cream. They live in the same book as everything else and run through the same “what can I make tonight” filter, so a shelf with no spirits on it works exactly the same way.</p>
+
+    <h2>No account, no sign-up, no ads</h2>
+    <p>There is nothing to log into. Your inventory lives on your device and syncs through your own iCloud. The one feature that uses a server sends an ingredient list and nothing else — never the recipe name, and nothing about you or your bar.</p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p>
+    <a href="/">Privacy</a> ·
+    <a href="/support/">Support</a> ·
+    <a href="mailto:support@homebarkeep.com">support@homebarkeep.com</a>
+  </p>
+  <p>BarKeep is for adults of legal drinking age. Please drink responsibly.</p>
+</footer>
+
+<script>
+(async () => {
+  const shelfEl = document.getElementById("shelf");
+  const drinksEl = document.getElementById("drinks");
+  const countEl = document.getElementById("count");
+  const nounEl = document.getElementById("noun");
+
+  const data = await fetch("assets/shelf.json").then(r => r.json());
+  // Start with a plausible small shelf rather than empty: an empty state is the honest default in
+  // the app, but here it would read as a broken widget before anyone has tapped anything.
+  const owned = new Set([
+    "gin", "whiskeybourbon", "sweet vermouth", "campari",
+    "lemon juice", "simple syrup", "angostura bitters", "soda water",
+  ]);
+
+  function render() {
+    const makeable = data.drinks.filter(d => d.i.every(k => owned.has(k)));
+    countEl.textContent = makeable.length;
+    nounEl.textContent = makeable.length === 1 ? "drink" : "drinks";
+    drinksEl.innerHTML = makeable.length
+      ? makeable.map(d => `<li>${d.n}</li>`).join("")
+      : `<li class="empty">Nothing yet — try adding a spirit, a vermouth and a citrus.</li>`;
+    for (const b of shelfEl.children) b.setAttribute("aria-pressed", owned.has(b.dataset.k));
+  }
+
+  for (const { k, label } of data.shelf) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.dataset.k = k;
+    b.textContent = label;
+    b.setAttribute("aria-pressed", "false");
+    b.addEventListener("click", () => {
+      owned.has(k) ? owned.delete(k) : owned.add(k);
+      render();
+    });
+    shelfEl.appendChild(b);
+  }
+  render();
+})();
+</script>
+</body>
+</html>
