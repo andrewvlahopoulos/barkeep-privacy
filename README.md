@@ -51,6 +51,10 @@ Do all of it, in order, or not at all:
    that build. Until it ships, installed copies still point at `/`.
 5. Update the **App Store description**'s Privacy Policy line.
 6. Update `home.html`'s own footer link from `/` to `/privacy/`.
+7. Update the **canonical URL** and the `og:url` / JSON-LD `url` in `home.html`, plus the `<loc>`
+   entries in `sitemap.xml`, from `/home.html` to `/`. Leaving them is not cosmetic: two URLs
+   serving identical content compete as duplicates, and the canonical is what tells Google which
+   one is real.
 
 Step 4 is the one with a lag: an app already on someone's phone keeps the old URL until they update.
 Keeping a redirect at `/` is not possible on GitHub Pages without a real page there, so the safe

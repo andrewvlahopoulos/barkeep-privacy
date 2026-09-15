@@ -3,12 +3,48 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>BarKeep — what can you make tonight?</title>
+<title>BarKeep — Home Bar Inventory for iPhone</title>
 <meta name="description" content="A home bar inventory for iPhone. Add the bottles you own, and see which of 170 cocktails you can actually make right now." />
 <link rel="icon" href="assets/icon.png" />
-<meta property="og:title" content="BarKeep — Home Bar" />
-<meta property="og:description" content="Add the bottles you own. See what you can make tonight." />
-<meta property="og:image" content="https://homebarkeep.com/assets/icon.png" />
+<link rel="apple-touch-icon" href="assets/icon.png" />
+<!-- Points at the page's current home. When the landing page moves to the root (see README),
+     this becomes https://homebarkeep.com/ or the two URLs compete as duplicates. -->
+<link rel="canonical" href="https://homebarkeep.com/home.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="BarKeep" />
+<meta property="og:url" content="https://homebarkeep.com/home.html" />
+<meta property="og:title" content="BarKeep — Home Bar Inventory for iPhone" />
+<meta property="og:description" content="Add the bottles you own. See which of 170 cocktails you can make tonight." />
+<!-- A real 1200x630 card, not the app icon. A square icon renders as a thumbnail or is dropped
+     entirely by most link unfurlers, which is the difference between a shared link that looks
+     like a product and one that looks like a bare URL. -->
+<meta property="og:image" content="https://homebarkeep.com/assets/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="BarKeep — what can you make tonight? A home bar inventory for iPhone." />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="BarKeep — Home Bar Inventory for iPhone" />
+<meta name="twitter:description" content="Add the bottles you own. See which of 170 cocktails you can make tonight." />
+<meta name="twitter:image" content="https://homebarkeep.com/assets/og.png" />
+
+<!-- Deliberately carries no aggregateRating: the app has no ratings yet, and inventing them is
+     both dishonest and a manual-action risk. Add it once real ratings exist. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "BarKeep — Home Bar",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "iOS 27.0 or later",
+  "url": "https://homebarkeep.com/home.html",
+  "image": "https://homebarkeep.com/assets/og.png",
+  "description": "A home bar inventory for iPhone. Add the bottles you own and BarKeep filters 170 cocktail recipes down to the ones you can actually make, identifies bottles from a photo using on-device AI, and tracks what is running low.",
+  "author": { "@type": "Person", "name": "Andrew Vlahopoulos" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
 <style>
   /* Palette is BarKeep's own BKColor tokens, the same ones the privacy and support pages use —
      this is one site, not three. */
