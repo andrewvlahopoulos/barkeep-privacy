@@ -42,7 +42,9 @@
   "image": "https://homebarkeep.com/assets/og.png",
   "description": "A home bar inventory for iPhone. Add the bottles you own and BarKeep filters 170 cocktail recipes down to the ones you can actually make, identifies bottles from a photo using on-device AI, and tracks what is running low.",
   "author": { "@type": "Person", "name": "Andrew Vlahopoulos" },
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "installUrl": "https://apps.apple.com/app/id6799778113",
+  "downloadUrl": "https://apps.apple.com/app/id6799778113"
 }
 </script>
 <style>
@@ -98,10 +100,16 @@
     text-wrap: balance;
   }
   .sub { color: var(--ink-soft); font-size: 1.1rem; margin: 0 auto 2rem; max-width: 34rem; }
+  /* A real destination now, so it reads as one: filled rather than outlined, and large enough to
+     be an obvious tap target on a phone. */
   .cta {
-    display: inline-block; padding: 0.55rem 1.1rem; border: 1px solid var(--rule);
-    border-radius: 999px; color: var(--ink-soft); font-size: 0.95rem;
+    display: inline-block; padding: 0.7rem 1.5rem; border-radius: 999px;
+    background: var(--accent); color: var(--on-accent); font-size: 1.02rem;
+    font-weight: 600; text-decoration: none;
   }
+  .cta:hover { text-decoration: none; opacity: 0.92; }
+  .cta:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .cta-note { color: var(--ink-soft); font-size: 0.88rem; margin: 0.85rem 0 0; }
 
   /* ---- the demo: the app's signature counter, made operable ---- */
   .demo { margin: 3.5rem 0 1rem; }
@@ -164,7 +172,8 @@
   <img class="icon" src="assets/icon.png" alt="" />
   <h1 class="serif">What can you make tonight?</h1>
   <p class="sub">BarKeep is a home bar inventory for iPhone. Add the bottles you actually own, and it tells you which of 170 cocktails your shelf can produce right now — and what you're one bottle away from.</p>
-  <span class="cta">Coming soon to the App Store</span>
+  <a class="cta" href="https://apps.apple.com/app/id6799778113">Download on the App Store</a>
+  <p class="cta-note">Free · iPhone and iPad · requires iOS 27</p>
 </header>
 
 <main class="wrap">
