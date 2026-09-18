@@ -99,7 +99,7 @@
   <h2>Requirements</h2>
   <p>
     BarKeep requires <strong>iOS 27 or later</strong> on iPhone or iPad. That floor is
-    not arbitrary: bottle identification uses Apple Intelligence APIs that
+    not arbitrary: on-device bottle identification uses Apple Intelligence APIs that
     do not exist on earlier versions.
   </p>
   <p>
@@ -109,10 +109,9 @@
   <h2>Adding bottles</h2>
   <p>There are three ways, and you can mix them freely:</p>
   <ul>
-    <li><strong>Photograph the label.</strong> Apple Intelligence reads the brand, category,
-      strength and size, using Apple's Private Cloud Compute when it's available and the
-      model on your iPhone when it isn't &mdash; so it still works offline. It costs
-      nothing, and the photo is never sent to us.</li>
+    <li><strong>Photograph the label.</strong> On-device AI reads the brand, category,
+      strength and size. It runs entirely on your phone, costs nothing, and works
+      offline.</li>
     <li><strong>Scan the barcode.</strong> If the bottle is new to your shelf, BarKeep
       looks it up in a public product database to fill in the details.</li>
     <li><strong>Type it in.</strong> Always available, and every field from the other two
@@ -126,16 +125,15 @@
     noticeably better than an angled one.
   </p>
 
-  <h2>Bottle recognition: Apple Intelligence or Claude</h2>
+  <h2>Bottle recognition: On-Device or Claude</h2>
   <p>
     Settings &rsaquo; Intelligence lets you choose which engine identifies bottles.
   </p>
   <ul>
-    <li><strong>Apple Intelligence</strong> is the default. It uses Apple's Private Cloud
-      Compute when it's available &mdash; which Apple designed not to keep your photo &mdash;
-      and the model on your iPhone when it isn't. The photo is never sent to us, and
-      there is no cost per identification.</li>
-    <li><strong>Claude</strong> requires
+    <li><strong>On-Device</strong> is the default. Photos never leave your phone and
+      there is no cost per identification. It can be less accurate on heavily
+      stylised labels.</li>
+    <li><strong>Claude</strong> is more accurate on difficult labels, and requires
       <strong>your own Anthropic API key</strong>, entered in Settings. Usage is billed
       to your Anthropic account, not to BarKeep &mdash; there is no markup and no
       subscription involved. A typical bottle scan costs a few cents.</li>
@@ -147,7 +145,7 @@
 
   <h2>BarKeep Pro</h2>
   <p>
-    <strong>The core app is free forever.</strong> Inventory, cocktails,
+    <strong>The core app is free forever.</strong> Inventory, cocktails, on-device
     bottle identification, barcode scanning, low-stock alerts and the built-in recipe
     library are not behind a paywall and are not time-limited.
   </p>
