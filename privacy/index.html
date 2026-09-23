@@ -73,7 +73,7 @@
 <body>
 <main>
   <h1>BarKeep Privacy Policy</h1>
-  <p class="updated">Last updated September 18, 2026</p>
+  <p class="updated">Last updated September 23, 2026</p>
 
   <p>
     BarKeep is a personal home-bar inventory app for iPhone. It has no user
@@ -92,7 +92,7 @@
     as a matter of course.
   </p>
   <p>
-    Two things are worth stating plainly, because "all of it stays on your phone"
+    Three things are worth stating plainly, because "all of it stays on your phone"
     would not be quite true:
   </p>
   <ul>
@@ -102,6 +102,8 @@
       iPhone Settings &rsaquo; your name &rsaquo; iCloud &rsaquo; Saved to iCloud.</li>
     <li>If you ask BarKeep to <strong>write a tasting note</strong> for a recipe you imported,
       that one recipe leaves your device. See "Written tasting notes" below.</li>
+    <li>From version 1.1, <strong>identifying a bottle from a photo</strong> usually sends that
+      photo to Apple's Private Cloud Compute. It never reaches us. See "Camera &amp; Photos" below.</li>
   </ul>
 
   <h2>Camera &amp; Photos</h2>
@@ -112,15 +114,26 @@
     your device.
   </p>
   <p>
-    By default, identifying a bottle or menu from a photo runs entirely
-    <strong>on-device</strong>, using Apple's on-device Apple Intelligence
-    models. In this mode, the photo never leaves your phone.
+    <strong>Identifying a bottle from a photo.</strong> As of version 1.1, BarKeep uses
+    Apple's <strong>Private Cloud Compute</strong> to identify a bottle when it's available,
+    and otherwise does it entirely on your iPhone &mdash; for example when you're offline or
+    have reached Apple's daily limit. When Private Cloud Compute is used, the photo is sent to
+    Apple for processing. Apple designed Private Cloud Compute not to retain it and so that
+    Apple can't access it. BarKeep receives only the identified details, never the photo.
+    Apple counts these requests against your iCloud account's daily limit.
+    In versions before 1.1, identifying a bottle runs entirely on your iPhone and the photo
+    never leaves it.
+  </p>
+  <p>
+    <strong>Identifying a menu from a photo, and importing a recipe from text,</strong> run
+    entirely on your iPhone in every version, using Apple's on-device Apple Intelligence
+    models. Those photos and that text never leave the device.
   </p>
 
   <h2>Optional: Claude Cloud identification</h2>
   <p>
     Settings offers an optional alternative: identifying bottles/menus using
-    Anthropic's Claude API instead of the on-device model. This is off by
+    Anthropic's Claude API instead of Apple Intelligence. This is off by
     default and only activates if you turn it on yourself and supply your
     own Anthropic API key.
   </p>
@@ -131,7 +144,7 @@
     <li>Anthropic's own privacy practices govern data sent to their API — see <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy Policy</a>.</li>
   </ul>
   <div class="callout">
-    You can switch back to on-device identification, or delete your stored
+    You can switch back to Apple Intelligence, or delete your stored
     API key, at any time from BarKeep's Settings screen.
   </div>
 
